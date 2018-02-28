@@ -1,0 +1,957 @@
+<?php 
+   	session_start(); 
+    include_once('functions.php'); 
+    include('header.php');
+    open_page('Teeth whitening'); 
+  
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Creative Responsive Bootstrap Multi-Purpose HTML Template">
+<meta name="keywords" content="H2O, Creative, Agency, Portfolio, Freelancer, Shop, Store,Bootstrap, HTML, Template, One page">
+<meta name="author" content="Vadzim Liashkevich">
+
+
+<!-- =========================
+     MAIN MENU
+============================== -->
+<?php 
+            if(isset($_SESSION['is_logged_in'])){ 
+                if($_SESSION['role']=='dokter'){
+                    echo('<!-- =========================
+					     MAIN MENU
+					============================== -->
+					<div id="smartposition"></div>
+					<div class="top-menu" id="top-menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="mobile-bar-cont">
+										<div class="top-menu-logo"> <a href="#"><img src="images/Logoku.png" alt="" />
+											<span class="bold600 color-child-6">FRESH</span>
+											<span class="color-child-5">DENTAL CLINIC</span>
+											</a> </div>
+										<div class="mobile-bar">
+											<div class="show-menu" id="show-menu"> <i class="fa fa-bars"></i> </div>
+										</div>
+									</div>
+									<ul class="nav navbar-nav">
+										<li ><a href="index.php">HOME</a></li>
+										<li><a href="about.php">ABOUT US</a></li>
+										<li class="dropdown" class="active"> <a data-toggle="dropdown" href="#">SERVICES</a>
+											<ul class="dropdown-menu with-bg" role="menu">
+												<li><a href="services.php">Oral exams</a></li>
+												<li class="active"><a href="services1.php">Teeth whitening</a></li>
+												<li><a href="services2.php">Teeth cleaning</a></li>
+												<li><a href="services3.php">X-rays</a></li>
+												<li><a href="services4.php">Crowns</a></li>
+												<li><a href="services5.php">Fillings and bridges</a></li>
+												<li><a href="services6.php">Implants</a></li>
+												<li><a href="services7.php">Extractions</a></li>
+												<li><a href="services8.php">Root canals</a></li>
+												<li><a href="services9.php">Surgical implant placements</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"> <a href="doctors.php">OUR DOCTOR</a>
+										</li>
+										<li><a href="contacts.php">CONTACT US</a></li>
+										
+										<li><a href="doctor.php">SCHEDULE</a></li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>');
+                }
+                if($_SESSION['role']=='perawat'){
+                    echo('<!-- =========================
+					     MAIN MENU
+					============================== -->
+					<div id="smartposition"></div>
+					<div class="top-menu" id="top-menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="mobile-bar-cont">
+										<div class="top-menu-logo"> <a href="#"><img src="images/Logoku.png" alt="" />
+											<span class="bold600 color-child-6">FRESH</span>
+											<span class="color-child-5">DENTAL CLINIC</span>
+											</a> </div>
+										<div class="mobile-bar">
+											<div class="show-menu" id="show-menu"> <i class="fa fa-bars"></i> </div>
+										</div>
+									</div>
+									<ul class="nav navbar-nav">
+										<li ><a href="index.php">HOME</a></li>
+										<li><a href="about.php">ABOUT US</a></li>
+										<li class="dropdown" active> <a data-toggle="dropdown" href="#">SERVICES</a>
+											<ul class="dropdown-menu with-bg" role="menu">
+												<li><a href="services.php">Oral exams</a></li>
+												<li class="active"><a href="services1.php">Teeth whitening</a></li>
+												<li><a href="services2.php">Teeth cleaning</a></li>
+												<li><a href="services3.php">X-rays</a></li>
+												<li><a href="services4.php">Crowns</a></li>
+												<li><a href="services5.php">Fillings and bridges</a></li>
+												<li><a href="services6.php">Implants</a></li>
+												<li><a href="services7.php">Extractions</a></li>
+												<li><a href="services8.php">Root canals</a></li>
+												<li><a href="services9.php">Surgical implant placements</a></li>
+											</ul>
+										</li>
+										<li> <a href="doctors.php">OUR DOCTOR</a>
+										
+										</li>
+										<li><a href="contacts.php">CONTACT US</a></li>
+										<li><a href="pembayaran_byperawat.php">PAYMENT</a></li>
+										
+										<li><a href="manager.php">CONTROL SCHEDULE</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>');
+                }
+                
+            }else{ 
+                echo('<!-- =========================
+					     MAIN MENU
+					============================== -->
+					<div id="smartposition"></div>
+					<div class="top-menu" id="top-menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="mobile-bar-cont">
+										<div class="top-menu-logo"> <a href="#"><img src="images/Logoku.png" alt="" />
+											<span class="bold600 color-child-6">FRESH</span>
+											<span class="color-child-5">DENTAL CLINIC</span>
+											</a> </div>
+										<div class="mobile-bar">
+											<div class="show-menu" id="show-menu"> <i class="fa fa-bars"></i> </div>
+										</div>
+									</div>
+									<ul class="nav navbar-nav">
+										<li ><a href="index.php">HOME</a></li>
+										<li><a href="about.php">ABOUT US</a></li>
+										<li class="dropdown" active> <a data-toggle="dropdown" href="#">SERVICES</a>
+											<ul class="dropdown-menu with-bg" role="menu">
+												<li><a href="services.php">Oral exams</a></li>
+												<li class="active"><a href="services1.php">Teeth whitening</a></li>
+												<li><a href="services2.php">Teeth cleaning</a></li>
+												<li><a href="services3.php">X-rays</a></li>
+												<li><a href="services4.php">Crowns</a></li>
+												<li><a href="services5.php">Fillings and bridges</a></li>
+												<li><a href="services6.php">Implants</a></li>
+												<li><a href="services7.php">Extractions</a></li>
+												<li><a href="services8.php">Root canals</a></li>
+												<li><a href="services9.php">Surgical implant placements</a></li>
+											</ul>
+										</li>
+										<li class="dropdown"> <a href="doctors.php">OUR DOCTOR</a>
+										</li>
+										<li><a href="contacts.php">CONTACT US</a></li>
+									
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>');
+            }            
+    ?> 
+
+
+<!-- =========================
+     END MAIN MENU
+============================== --> 
+<div class="page-title page-title-services bg-pattern" data-bgcolor="2791AA">
+	<div class="page-title-overlay">
+		<div class="container">
+			<h1>SERVICES</h1>
+			<p>Our Clinic has grown to provide a world class facility for the treatment of tooth loss, dental cosmetics and advanced restorative dentistry.</p>
+		</div>
+	</div>
+</div>
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-home"><a href="#"><i class="fa fa-home"></i></a></li>					
+				<li><a href="#">Services</a></li>
+				<li class="active">Teeth Whitening</li>
+			</ol>
+		</div>
+	</div>
+</div>
+<div class="doctor">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<div class="doctor-info">
+					<div class="oralexams-info-image"> <img src="images/download.jpg" alt="" /> </div>
+				</div>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">	
+				<div class="doctor-text">
+					<h3>Apakah Teeth Whitening itu?</h3>
+					<p style="text-align: justify;">Teeth Whitening adalah proses kimia untuk mencerahkan warna gigi. Prosedur ini dapat dilakukan di klinik atau di rumah dengan bahan-bahan yang disediakan oleh dokter gigi.</p></p>
+					<h3>Macam-macam prosedur whitening</h3>
+					<p style="text-align: justify;">
+					Ada beberapa macam prosedur untuk memutihkan gigi. Secara garis besar terbagi menjadi dua, yang dilakukan di klinik (in-office) dan di rumah pasien (in-home). Masing-masing memiliki keuntungan dan kerugian, tergantung dari kepatuhan dan komitmen pasien dalam menjalankannya.</p>
+
+				</div>
+			</div>
+					
+					&nbsp<h4><b><font color="blue"> 1.In Office</font></b></h4>
+					<ul>
+						<li><b><p style="text-align: justify;">Pre-whitening Exam:</b> Sebelum memutuskan untuk melakukan perawatan pemutihan gigi, Anda harus menjalani pemeriksaan gigi untuk memastikan gigi dan gusi Anda cukup sehat untuk perawatan pemutih. Jika Anda memiliki restorasi gigi seperti veneer, mahkota, atau jembatan, perawatan pemutih dapat mempengaruhi mereka, dan dokter gigi akan menjelaskan manfaat dan pertimbangannya. Pada 1st Family Dental, pemeriksaan pra-pemutih dijadwalkan bersamaan dengan prosedur pemutihan. Selama semuanya berjalan baik, proses pemutihan bisa dilakukan dalam kunjungan yang sama. Namun, tidak semua individu adalah calon pemutih gigi. Misalnya, masalah seperti [penyakit gusi] harus ditangani dan ditangani sebelum prosedur pemutihan. Dokter gigi Anda akan memberi Anda lebih banyak informasi, dan detail potensi manfaat dan risiko yang terkait dengan pemutihan gigi di kantor.</p></li>
+						
+						<li><b><p style="text-align: justify;">Recent Dental Cleaning:</b> Pembersihan gigi baru-baru ini diperlukan untuk memastikan perawatan pemutih efektif sebanyak mungkin. Juga, Anda harus melihat gigi Anda dalam kondisi ideal mereka sebelum memutihkan, dengan pewarnaan permukaan, puing dan tartar yang dilepas, untuk memastikan pemutihan gigi adalah pilihan yang diinginkan. Jika pembersihan biasa diperlukan untuk melanjutkan, pembersihan dapat dilakukan sebelum prosedur pemutihan dilakukan pada kunjungan yang sama.</p></li>
+ 						
+						<li><b><p style="text-align: justify;">Optional – Impressions for Take-Home Whitening Trays: </b>Beberapa pasien memilih baki yang dipasang khusus untuk digunakan dengan perawatan pemutih di rumah untuk membantu menjaga senyuman mereka secerah mungkin. Sebelum perawatan pemutihan Anda, Anda mungkin memiliki kesan yang diambil untuk menciptakan cetakan yang sesuai dengan gigi Anda untuk menahan bahan pemutih. Catatan: Jika Anda menerima perawatan Invisalign, nampan Anda juga bisa digunakan untuk pemutihan di rumah</p></li>
+						
+						<li><b><p style="text-align: justify;">Color/Shade Selection: </b>Langkah selanjutnya adalah memilih warna yang diinginkan untuk gigi Anda. Dokter gigi akan memberikan panduan naungan dengan contoh yang bisa Anda pilih. Dokter gigi Anda akan sesuai dengan warna gigi Anda saat ini dengan menggunakan panduan ini, dan Anda dapat mendiskusikan warna mana yang paling diminati dan masuk akal untuk dicapai, dan bandingkan hasilnya dengan warna asli saat perawatan berlangsung.</p></li>
+						
+						<li><b><p style="text-align: justify;">Touch-Up cleaning: </b>Jika perlu, dokter gigi Anda mungkin memoles gigi Anda untuk memastikan gigi Anda bersih dan bebas dari kotoran yang bisa mencegah perawatan pemutih agar tidak hasil optimal.</p></li>
+						
+						<li><b><p style="text-align: justify;">Isolating the Teeth:</b>Bahan yang digunakan selama perawatan pemutihan profesional tidak boleh menyentuh jaringan lunak seperti gusi, lidah, atau pipi. Mulut dan wajah Anda akan disiapkan dengan menggunakan berbagai rintangan, termasuk retraktor plastik, gulungan kapas, oto, kacamata pelindung, penghalang pelindung cair untuk gusi, dll.</p></li>
+						
+						<li><b><p style="text-align: justify;">Applying the Whitening Material:  </b>Setelah gigi Anda terisolasi, bahan pemutih dioleskan ke gigi Anda. Beberapa jenis perawatan menggunakan laser untuk mengaktifkan bahan pemutih. Kemudian, pemutih diberi waktu untuk bekerja. Biasanya pemutih dipoles ulang dan diaktifkan kembali selama serangkaian sesi 15 sampai 20 menit, yang diulang sampai naungan yang diinginkan tercapai. Selama sesi pemutihan, Anda akan dapat memeriksa kemajuan dengan panduan dan cermin bayangan.</p></li>
+						
+						<li><b><p style="text-align: justify;">Enjoying the results:</b>Setelah perawatan pemutih selesai, gigi dan gusi Anda akan dicuci seluruhnya, semua penghalang pelindung akan dilepas, dan Anda akan bisa tersenyum dan melihat hasil perawatan pemutih Anda!</p></li>
+					</ul>
+					<h4><b><font color="blue">2. In Home</font></b></h4>
+
+						<p style="text-align: justify;">Sekarang ini ada banyak cara untuk memutihkan gigi yang dapat dilakukan di rumah. Di antaranya dengan tray, strip, dan kuas. Diskusikanlah kembali dengan dokter gigi anda untuk mendapat hasil yang anda inginkan.</p>
+					
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+
+	
+
+
+
+<!--
+<div class="services-1" id="services">
+	<div class="container">
+		<div class="row">
+			<p class="services-1-text">All our dental care services are provided at a clinic near you, with convenient hours, state-of-the-art facilities and highly trained and licensed Dentists and Dental Assistants to provide the care you and your family deserve.</p>
+			<h3 class="services-1-title">We provide the full range of dental services</h3>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 service">
+				<div class="service-icon"> <i class="flaticon-people"></i> </div>
+				<div class="service-title">
+					<h3>qualified doctors</h3>
+				</div>
+				<div class="service-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 service">
+				<div class="service-icon"> <i class="flaticon-medal"></i> </div>
+				<div class="service-title">
+					<h3>certificates</h3>
+				</div>
+				<div class="service-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. </div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 service">
+				<div class="service-icon"> <i class="flaticon-dental-drill"></i> </div>
+				<div class="service-title">
+					<h3>dental care</h3>
+				</div>
+				<div class="service-text"> Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 service">
+				<div class="service-icon"> <i class="flaticon-dental-chair-1"></i> </div>
+				<div class="service-title">
+					<h3>qualified doctors</h3>
+				</div>
+				<div class="service-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="serv">
+	<ul id="isotope-filter">
+		<li><a class="active" data-filter="*">All services</a></li>
+		<li><a data-filter=".dental">Dental services</a></li>
+		<li><a data-filter=".diagnostic">Diagnostic services</a></li>
+		<li><a data-filter=".rehabillitation">Rehabillitation services</a></li>
+	</ul>
+	<div class="container">
+		<div class="row">
+			<div class="serv-items" id="isotope-items">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 serv-item isotope-item dental">
+					<div class="serv-item-image"> <img src="images/serv1.jpg" alt="" /> </div>
+					<div class="serv-item-text">
+						<h3>Tooth whitening</h3>
+						<p>Tooth whitening (termed tooth bleaching when utilizing bleach), is either restoration of natural tooth shade or whitening beyond natural tooth shade, depending on the definition used.</p>
+						<p>Restoration of the underlying, natural tooth shade is possible by simply removing surface (extrinsic) stains (e.g. from tea, coffee, red wine and tobacco) and calculus (tartar). This is achieved by having the teeth cleaned by a dental professional (commonly termed "scale and polish".</p>
+						<div class="serv-item-button"> <a href="#" class="btn btn-primary-1 btn-sm">READ MORE</a>
+							<div class="serv-item-tag">Dental service</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 serv-item isotope-item diagnostic">
+					<div class="serv-item-image"> <img src="images/serv2.jpg" alt="" /> </div>
+					<div class="serv-item-text">
+						<h3>Tooth cleaning</h3>
+						<p>Tooth whitening (termed tooth bleaching when utilizing bleach), is either restoration of natural tooth shade or whitening beyond natural tooth shade, depending on the definition used.</p>
+						<p>Restoration of the underlying, natural tooth shade is possible by simply removing surface (extrinsic) stains (e.g. from tea, coffee, red wine and tobacco) and calculus (tartar). This is achieved by having the teeth cleaned by a dental professional (commonly termed "scale and polish".</p>
+						<div class="serv-item-button"> <a href="#" class="btn btn-primary-1 btn-sm">READ MORE</a>
+							<div class="serv-item-tag">Dental service</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 serv-item isotope-item rehabillitation">
+					<div class="serv-item-image"> <img src="images/serv3.jpg" alt="" /> </div>
+					<div class="serv-item-text">
+						<h3>Oral exams</h3>
+						<p>Tooth whitening (termed tooth bleaching when utilizing bleach), is either restoration of natural tooth shade or whitening beyond natural tooth shade, depending on the definition used.</p>
+						<p>Restoration of the underlying, natural tooth shade is possible by simply removing surface (extrinsic) stains (e.g. from tea, coffee, red wine and tobacco) and calculus (tartar). This is achieved by having the teeth cleaned by a dental professional (commonly termed "scale and polish".</p>
+						<div class="serv-item-button"> <a href="#" class="btn btn-primary-1 btn-sm">READ MORE</a>
+							<div class="serv-item-tag">Dental service</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul class="pagination">
+				<li><a class="first" href="#"><i class="fa fa-angle-left"></i></a></li>
+				<li><a class="active">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a class="last" href="#"><i class="fa fa-angle-right"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+-->
+<!-- =========================
+    FOOTER
+============================== -->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 footer-matchheight">
+				<div class="row"> 
+					
+					<!-- FOOTER ITEM 2 -->
+					<div class="col-lg-8 col-md-3 col-sm-3 col-xs-12 footer-item footer-item-2">
+						<h3 class="footer-title footer-title-line"><i class="fa fa-clock-o"></i> Jadwal Buka Klinik</h3>
+						<div class="opening-left"> 
+							Monday<br>
+							Tuesday<br>
+							Wednesday<br>
+							Thursday<br>
+							Friday<br>
+							Saturday<br>
+							Sunday </div>
+						<div class="opening-right"> 
+							9:00 am - 7:15 pm<br>
+							9:00 am - 7:15 pm<br>
+							9:00 am - 7:15 pm<br>
+							9:00 am - 7:15 pm<br>
+							9:00 am - 7:15 pm<br>
+							9:00 am - 7:15 pm<br>
+							Closed </div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-copyright">
+						<div> Copyright &copy; 2017 <a>FreshDentalClinic</a> </div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- FOOTER ITEM 3 -->
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 footer-item footer-item-3 footer-matchheight" id="footer-item-3">
+				<h3 class="footer-title"><i class="fa fa-map-marker"></i> CONTACTS</h3>
+				<div class="footer-item-3-phone"> <i class="fa fa-phone"></i> 0823-6463-9116 </div>
+				<div class="footer-item-3-location"> <i class="flaticon-navigation-arrow"></i> Jln Sisingamangaraja Sitoluama Laguboti </div>
+				<div class="footer-item-3-mail"> <i class="fa fa-envelope"></i> <a href="#">office@dental.com</a> </div>
+				<div class="footer-item-3-socials"> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-skype"></i></a> </div>
+			</div>	
+
+
+<!-- =========================
+    END FOOTER
+============================== --> 
+
+<!-- =========================
+    POPUP FORMS
+============================== -->
+<div class="bookform bookform-1" id="bookform1">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item f-doctor">
+					<select id="form-doctor" class="form-doctor" name="form-doctor">
+						<option value="Not selected" selected="selected">Select doctor</option>
+						<option value="Arnie Alban">Arnie Alban</option>
+						<option value="Wyatt Esmond">Wyatt Esmond</option>
+						<option value="Dustin Callahan">Dustin Callahan</option>
+						<option value="Kristin Weaver">Kristin Weaver</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name1" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone1" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email1" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker1" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker1" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message1" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close1" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="bookform-right-info-1">
+			<h5>Please select a doctor</h5>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		<div class="bookform-right-info-2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+	</div>
+</div>
+
+<div class="bookform" id="bookform2">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name2" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone2" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email2" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker2" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker2" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message2" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close2" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="doctor-info">
+			<div class="doctor-info-image"> <img src="images/doctor1.jpg" alt="" /> </div>
+			<div class="doctor-info-name"> Wyatt Esmond </div>
+			<div class="doctor-info-position"> General Dentist </div>
+			<div class="doctor-info-hours-title"> OPENING HOURS </div>
+			<div class="doctor-info-hours">
+				<div class="doctor-info-hours-clock"> <img src="images/clock.png" alt="" /> </div>
+				<div class="doctor-info-hours-left"> Monday<br>
+					Tuesday<br>
+					Wednesday<br>
+					Thursday<br>
+					Friday<br>
+					Saturday<br>
+					Sunday </div>
+				<div class="doctor-info-hours-right"> Closed<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					Closed </div>
+			</div>
+			<div class="doctor-info-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		</div>
+	</div>
+</div>
+
+<div class="bookform" id="bookform3">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name3" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone3" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email3" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker3" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker3" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message3" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close3" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="doctor-info">
+			<div class="doctor-info-image"> <img src="images/doctor2.jpg" alt="" /> </div>
+			<div class="doctor-info-name"> Arnie Alban </div>
+			<div class="doctor-info-position"> Pedodontics </div>
+			<div class="doctor-info-hours-title"> OPENING HOURS </div>
+			<div class="doctor-info-hours">
+				<div class="doctor-info-hours-clock"> <img src="images/clock.png" alt="" /> </div>
+				<div class="doctor-info-hours-left"> Monday<br>
+					Tuesday<br>
+					Wednesday<br>
+					Thursday<br>
+					Friday<br>
+					Saturday<br>
+					Sunday </div>
+				<div class="doctor-info-hours-right"> Closed<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					Closed </div>
+			</div>
+			<div class="doctor-info-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		</div>
+	</div>
+</div>
+
+<div class="bookform" id="bookform4">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name4" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone4" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email4" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker4" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker4" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message4" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close4" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="doctor-info">
+			<div class="doctor-info-image"> <img src="images/doctor3.jpg" alt="" /> </div>
+			<div class="doctor-info-name"> Dustin Callahan </div>
+			<div class="doctor-info-position"> Ortodontist </div>
+			<div class="doctor-info-hours-title"> OPENING HOURS </div>
+			<div class="doctor-info-hours">
+				<div class="doctor-info-hours-clock"> <img src="images/clock.png" alt="" /> </div>
+				<div class="doctor-info-hours-left"> Monday<br>
+					Tuesday<br>
+					Wednesday<br>
+					Thursday<br>
+					Friday<br>
+					Saturday<br>
+					Sunday </div>
+				<div class="doctor-info-hours-right"> Closed<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					Closed </div>
+			</div>
+			<div class="doctor-info-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		</div>
+	</div>
+</div>
+
+<div class="bookform" id="bookform5">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name5" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone5" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email5" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker5" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker5" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message5" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close5" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="doctor-info">
+			<div class="doctor-info-image"> <img src="images/doctor4.jpg" alt="" /> </div>
+			<div class="doctor-info-name"> Kristin Weaver </div>
+			<div class="doctor-info-position"> Hygienist </div>
+			<div class="doctor-info-hours-title"> OPENING HOURS </div>
+			<div class="doctor-info-hours">
+				<div class="doctor-info-hours-clock"> <img src="images/clock.png" alt="" /> </div>
+				<div class="doctor-info-hours-left"> Monday<br>
+					Tuesday<br>
+					Wednesday<br>
+					Thursday<br>
+					Friday<br>
+					Saturday<br>
+					Sunday </div>
+				<div class="doctor-info-hours-right"> Closed<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					Closed </div>
+			</div>
+			<div class="doctor-info-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		</div>
+	</div>
+</div>
+
+<div class="bookform" id="bookform6">
+	<div class="bookform-left">
+		<h2 class="section-title">
+			<span class="bold700">BOOK APPOINTMENT</span>
+		</h2>
+		<form class="bookform-form" action="js/sendmail-book.php" role="form" method="post">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item name">
+					<input type="text" name="name" id="name6" data-validation="required" placeholder="Your name" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item phone">
+					<input type="text" name="phone" id="phone6" data-validation="required" placeholder="Phone" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item email">
+					<input type="text" name="email" id="email6" placeholder="E-mail" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item date">
+					<input type="text" class="datepicker-f" id="datepicker6" name="date" data-validation="required" placeholder="Date" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 booking-form-item time-f">
+					<input type="text" class="timepicker-f" id="timepicker6" name="time" data-validation="required" placeholder="Time" />
+					<div class="help help-sm help-red">!</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<textarea name="message" id="message6" placeholder="Your message.."></textarea>
+				</div>
+			</div>
+			<div class="row" style="display:none;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item honeypot">
+					<label class="fl_label" for="last">Honeypot:</label>
+					<input type="text" name="last" value="" id="last" class="form-control fl_input">
+				</div>
+			</div>
+			<div class="row latest-row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 booking-form-item">
+					<button class="btn btn-primary">SUBMIT</button>
+					<a class="fb-close" id="fb-close6" href="javascript:jQuery.fancybox.close();">Cancel</a> </div>
+			</div>
+			<div class="form-messages form-messages-modal"></div>
+		</form>
+	</div>
+	<div class="bookform-right">
+		<div class="doctor-info">
+			<div class="doctor-info-image"> <img src="images/doctor5.jpg" alt="" /> </div>
+			<div class="doctor-info-name"> Leslie Adams </div>
+			<div class="doctor-info-position"> Prosthodontics </div>
+			<div class="doctor-info-hours-title"> OPENING HOURS </div>
+			<div class="doctor-info-hours">
+				<div class="doctor-info-hours-clock"> <img src="images/clock.png" alt="" /> </div>
+				<div class="doctor-info-hours-left"> Monday<br>
+					Tuesday<br>
+					Wednesday<br>
+					Thursday<br>
+					Friday<br>
+					Saturday<br>
+					Sunday </div>
+				<div class="doctor-info-hours-right"> Closed<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					9:00 am - 7:15 pm<br>
+					Closed </div>
+			</div>
+			<div class="doctor-info-desc"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+		</div>
+	</div>
+</div>
+
+<!-- =========================
+    END POPUP FORMS
+============================== -->
+
+<!-- =========================
+    COLOR SWITHER
+============================== -->
+
+<div class="color-sw" id="color-sw">
+	<div class="color-sw-header"> Style switcher
+		<span class="color-sw-close" id="color-sw-close"><i class="fa fa-close"></i></span>
+	</div>
+	<div class="color-sw-body">
+		<p>Choose color style</p>
+		<div class="color-sw-item active" id="blue">
+			<div></div>
+		</div>
+		<div class="color-sw-item" id="violet">
+			<div></div>
+		</div>
+		<div class="color-sw-item" id="red">
+			<div></div>
+		</div>
+		<div class="color-sw-item" id="green">
+			<div></div>
+		</div>
+	</div>
+</div>
+<!-- =========================
+    END COLOR SWITHER
+============================== -->
+<div class="totop" id="totop"> <i class="fa fa-angle-up"></i> </div>
+
+<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+<!-- =========================
+     SCRIPTS   
+============================== --> 
+<!-- JQUERY --> 
+<script src="js/jquery-2.2.0.min.js"></script> 
+
+<!-- BOOTSTRAP --> 
+<script src="js/bootstrap.min.js"></script> 
+
+<!-- SLIDER PRO --> 
+<script src="js/jquery.sliderPro.min.js"></script> 
+
+<!-- LIGHTBOX --> 
+<script src="js/jquery.fancybox.pack.js"></script> 
+
+<!-- CAROUSEL --> 
+<script src="js/owl.carousel.js"></script> 
+
+<!-- STAR RATING --> 
+<script src="js/jquery.barrating.min.js"></script> 
+
+<!-- ISOTOPE FILTER --> 
+<script src="js/isotope.pkgd.min.js"></script> 
+
+<!-- SCROLLSPY --> 
+<script src="js/scrollspy.js"></script> 
+
+<!-- DATEPICKER --> 
+<script src="js/moment.js"></script> 
+<script src="js/bootstrap-datetimepicker.min.js"></script> 
+
+<!-- JQUERY FORM --> 
+<script src='js/jquery.form.js'></script> 
+
+<!-- FORM VALIDATOR --> 
+<script src='js/jquery.form-validator.js'></script> 
+
+<!-- SELECT STYLING --> 
+<script src='js/jquery.selectBox.js'></script> 
+
+<!-- MATCHHEIGHT --> 
+<script src='js/jquery.matchHeight.js'></script> 
+
+<!-- IMAGES LOADED -->
+<script src='js/imagesloaded.pkgd.min.js'></script>
+
+<!-- IMAGES LOADED -->
+<script src='js/imagesloaded.pkgd.min.js'></script>
+
+<!-- CUSTOM SCRIPT --> 
+<script src="js/theme.js"></script> 
+
+<!-- GOOGLE MAPS --> 
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC1N87a_NHjocaepKKcovPAYTMUkJBr9pQ&amp;language=en&amp;sensor=true"></script> 
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]--> 
+
+</body>
+</html>
